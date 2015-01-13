@@ -1,0 +1,376 @@
+Tri-State Buffers:
+	http://en.wikipedia.org/wiki/Three-state_logic
+	- Used to create a high impedance output ( hi-z ) in order to prevent short circuits. Can also be used to 
+	  implement multiplexors. Also create a tri-state input ( high, float, low ). &
+	  
+PulseGuard diode :
+	http://www.littelfuse.com/products/pulseguard-esd-suppressors.aspx
+	- Prevents electrostatic discharge on inputs that would have posed a threat to the entire board &
+	
+Inductors :
+	http://macao.communications.museum/eng/exhibition/secondfloor/moreinfo/2_3_6_ResistanceInductance.html
+	- Passive device that stores energy in its magnetic field, and restores the energy back to the circuit.
+	  When a power supply is initially connected to the inductor, it first resists the change in current, opposed
+	  by the self induced electromotive force, Vemf. Therefore creating a voltage drop across the inductor, VL = Vemf.
+	  As the Self induced electromotive force slows down the current change, the slow down of current change causes 
+	  VL to become smaller. When current becomes stable, the inductor creates no more opposition, and VL -> 0. &
+	
+SPI ( Serial Peripheral Interface ) :
+	http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
+	Serial Peripheral Interface is a synchronous ( clocked ) data link. Devices communicate in master/slave mode
+	where the master initiates the data frame. Multiple slave devices are allowed on one link.
+		SCLK: Serial Clock ( output from master )
+		MOSI: Master Output( Slave Input )
+		MISO: Master Input ( Slave Output )
+		SS  : Slave Select ( Master Output ) &
+		
+CS ( Chip Select ) : 
+	http://en.wikipedia.org/wiki/Chip_select
+	Chip Select ( CS ) or Slave Select ( SS ) is the name of a control line used to select one chip out of
+	several connected to the same bus, usually utilizing tri-state logic. SPI uses this. When an engineer needs
+	to connect several devices to the same set of input wires, but retain the ability to send and recieve data or commans
+	to each device independently, he can use chip select. When CS is held inactive, the device is deaf, and ignores the
+	state of input pins, and holds its outputs in Hi-z so other chips can drive those signals. When the CS pin is held in the 
+	active state, the chip hears all of the signals on its input pins, and responds as if it is the only chip on the bus &
+	
+ASI ( Asynchronous Serial Interface ) :
+	http://en.wikipedia.org/wiki/Asynchronous_serial_interface
+	Asynchronous serial interface is a straeming data format which often carries MPEG Transport Stream. It can carry
+	one or multiple SD, HD, or audio programs that are already compressed, not like uncompressed SD-SDI or HD-SDI. The signal 
+	can be at varying transmission speeds and is completly dependent on the user's engineering requirements. Generally
+	the ASI signal is the final product of video compression ( MPEG2 or MPEG4 ). &
+	
+SMPTE ( Socitey of Motion Picture and Television Engineers ) :
+	http://en.wikipedia.org/wiki/Society_of_Motion_Picture_and_Television_Engineers
+	An international professional association, based in the US, of engineers working in motion imaging industries. They
+	are primarily known for their published standards which has recommended practices and engineering guidelines for everything
+	audio and video. Numbers after SMPTE refer to a specific standard. &
+	
+DVB-ASI ( Digital Video Broadcast ASI ) :
+	http://www.etsi.org/deliver/etsi_tr/101800_101899/101891/01.01.01_60/tr_101891v010101p.pdf
+	A very popular standard interface for converying MEPG-2 transport streams between professional equipment. &
+
+UART ( Universal Asynchronous Reciever/Transmitter ) :
+	http://en.wikipedia.org/wiki/Universal_asynchronous_receiver/transmitter
+	Hardware that translates data between parallel and serial froms. Usually an individaul IC used for serial communications
+	over a peripheral device serial port ( DB-9 ). Now commonly included into microcontrollers. The UART takes bytes of data, 
+	and transmitts the bits sequentially. At the destination, another UART device reassembles theses bits into complete bytes. 
+	Each UART contains a shift register which is the fundamental method of conversion between serial and parallel forms. Serial 
+	transmittion through one wire, can be less costly than parallel through many. Commonly used with standards.such as EIA and RS232. &
+
+TTL ( Transitor-Transitor Logic ) :
+	http://en.wikipedia.org/wiki/Transistor%E2%80%93transistor_logic#Sub-types
+	A class of digital circuits built from BJTs and resistors. It is called this due to the fact that the transitors perform the 
+	logic gating function, and the amplifying function. Most common interface between ICs. Lost popularity due to the development
+	of the CMOS transitors, which gave a large power consumption advantage, especially during static periods.
+		Sub-Types:
+			Low-Power TTL(L)  	: Low power, low speed
+			High-Speed TTL(H) 	: High speed, high power
+			Schottky TTL (S)  	: Operate more quickly, again higher power consumption
+			Low-Voltage TTL (LVTTL) : 3.3V power supplies and memory interfacing. &
+
+RS232 :
+	http://en.wikipedia.org/wiki/RS-232
+	A telecommunications standard for serial binary, single-ended data and control signals. The standard defines the electrical 
+	characteristics, the timing and meaning of signals, and the physical size and pinout of connectors. Low transmition speed, large
+	voltage swing, and large connectors of the RS-232 communication lead to the development of the USB, which has all but displaced
+	the RS-232. Many computers that wish to use the RS232 interface now must use a USB to RS232 adaptor. Was commonly used in computer 
+	serial ports for modems, prints, mice, and data storage. &
+
+
+CMOS ( Complimentary Metal Oxide Semiconductor ) :
+	http://en.wikipedia.org/wiki/CMOS
+	Technology used to construct integrated circuits in mocroprocessors, microcontrollers, and static RAM. Used for analog cirucits such
+	as data converters.  Complementary refers to the use of s p-type and n-type MOSFET pairs. They have high noise immunity, and low
+	static power consumption. Since one transistor in the pair is always off, the series combination draws significant power only briefly
+	during switching. Therefore produce less head than TTL and NMOS logic. &
+
+I2C ( Inter-Integrated Circuit ) :
+	http://en.wikipedia.org/wiki/I%C2%B2C
+	Multi-master serial, signle-ended computer bus invented by Philips, an dis used for attaching low-speed peripherals to a motherboard,
+	microcontroller, cellphones, and other devices. I2C uses only two bidirectional open-drain lines: Serial Data Line ( SDA ), and Serial
+	Clock ( SCL ) pulled up with resistors. Typical voltages used are either 5V or 3.3V. Uses a 7 or 10-bit address space, and has either a 
+	100kbit/s standard mode, or a 10kbit/s low-speed mode.  Recent versions can run up to 3.4Mbit/s and host more nodes. These speeds however,
+	are mostly used on embedded systems rather than PCs. Master node generates clock and initiates communication. SMBus is a subset of I2C with 
+	more strict guidelines. &
+
+I2S ( Integrated Interchip Sound ) :
+	http://en.wikipedia.org/wiki/I%C2%B2S
+	A serial bus interface standard used for connecting digial audio devices together. Used to communicate PCM auido data between integrated
+	cirucits. This bus separates the clock and data signals resulting in a lower jitter. The bit clock pulses once for every discrete bit of data 
+	on the data lines. Consists of at least three lines: bit clock line, word clock line, at least one multiplexed data line. &
+
+PCI-Express ( Peripheral Component Interconnect Express ) :
+	http://en.wikipedia.org/wiki/PCI_Express
+	Abbreviated as PCIe, is a high speed serial computer expansion bus standard which resplaced PCI. PCIe  has higher maximum system bus throughput,
+	lower I/O pin count, smaller physical footprint, better performance-scaling for bus devices, more detailed error detiction and Advanced Error
+	Reporting (AER), and native hot-plug functionality. This is an interconnect bus using shared address/data lines. PCIe is based on point to point
+	topology, with separate serial links connecting every device to the host. The bus link supports full-duplex communication between any two endpoints,
+	with no limitation on concurrent access ( contrast with single-endpoint ). PCIe communication is encapsulated in packets which is handled by
+	the transaction layer of the PCIe port. A lane is composed of two differential signaling pairs. One pair for recieving data, and the other pair for 
+	transmitting. The link can consist from 1 to 32 lanes. It a multilane link, the packet is strpped accross lanes which improves data throughput. 
+	Serial was choosen over parallel due to the bandwidth of parallel communication, and the fact that serial communication does not exhibnit time
+	skew because ther is only one differential signal in each direction within a lane, and there is no external clock signal since clocking information
+	is embedded within the serial signal. PCIe is only one example of the shift from parallel to serial ( USB, Serial ATA, SAS, FireWire). This standard 
+	is also used in the ExpressCard standard. &
+
+PCM ( Pulse Code Modulation ) :
+	http://en.wikipedia.org/wiki/Pulse-code_modulation
+	A method used to ditigally represent sampled analog signals. Standard form of digitial audio in computers, CDs, and telephones. In a PCM stream, the
+	amplitude of the analog signal is sampled regularly at uniform intervals, and each sample is quantized to the nearest value within a range of digital
+	steps. PCM streams have two basic properties: sampling rate, which is the number of times per second that samples are taken; and the bit depth, which
+	determines the number of possible digital values that each sample can take. &
+
+Sample Rate :
+	
+	Or sampling frequency defines the number of samples per unit of time taken from a continuous (analog ) signal, to make a discrete signal. &
+
+Altium Footprints :
+	Tips: Mechanical Layers do not show up on anything
+	      The silk screen (top overlay) is placed on top of the board for indentifying components, and cannot be placed over top of contacts
+	      Mechanical 2 layer ( dark purple ) is where the .designator should go. Shouldn't be over any contacts. Boarder should be aligned with mechanical 15 around the entire part
+	      Rectangular pads 
+	      
+	Shortcuts
+		Shift-S : See and control only selected layer
+		pl	: draw line
+		space   : rotate object  &
+
+Clock Buffer :
+	Improves the signal and reduces noise feedback from another system. It can also create a delay in teh signal. More specifically implemented to 
+	control rise and fall times of the edges. Can sometimes increase speed, or reduce power consumption. &
+
+Slew Rate :
+	http://en.wikipedia.org/wiki/Slew_rate
+	Is the maximum rate of change of output voltage per unit of time, and is expressed in volt per microsecond ( v/us ). Limitations in slew rate can give rise
+	to non linear effects in electronic amps. In a nut shell, how fast a signal can switch from on to off, or vise versa. Obvious that as slew rate -> 0, performance
+	increases. &
+
+Linear Circuit :
+	http://en.wikipedia.org/wiki/Linear_circuit
+	Circuit for which in which any sinusoidal input with frequency f results in a steady-state output that is also sinusoidal with frequency f. This Circuit obeys,
+	the laws of super-position. Linear inputs -> Linear Outputs. A linear circuit can have no non-linear components. 
+		Linear Circuits: Amps, differentiators, integraters, resistors, capacitors, inductors. &
+
+Non-Linear Device :
+	http://en.wikipedia.org/wiki/Nonlinear_element
+	Electrical element which does not have a linear relationship between current, and voltage. These devices are avoided in linear circuits, because they have the
+	potential to distort signals. Many circuits, such as amplifiers, operate linearly at low signal levels, and become non-linear at higher levels. If the input
+	to a non-linear device is low, and varies onlyin a small range around a fixed value( Q-point ), then the input/output relationship is linearized. This is
+	a small signal model. &
+	
+
+SATA ( Serial ATA ) :
+	http://en.wikipedia.org/wiki/Serial_ATA
+	Is a computer bus interface that connects host bus adapters to mass storage devices such as hard drives. It replaces the older AT attachment standard ( Parallel ATA ).
+	It offers a reduced cable size and cost ( 7 connectors ), native hot swapping, faster data transfer through higher signalling rates. SATA Devices communicate
+	via high-speed serial cable over two pairs of conductors &
+
+VLSI ( Very Large Scale Integration ) :
+	http://en.wikipedia.org/wiki/Very-large-scale_integration
+	Process of creating integrated circuits by combining thousands of transistors into a single chip. A microprocessor is a VLSI chip. &
+
+Dropout Voltage :
+	http://en.wikipedia.org/wiki/Dropout_voltage
+	The dropout voltage of a voltage regulator is the smallest poissible difference betweeen the input voltage, and the output voltage in order to remain inside the 
+	regulators intended operating range. For example a regulator with a 5V output, and a 2 Volt dropout voltage will only output 5V if the input voltage is above 7 volts.
+	Otherwise it will fail to regulate. &
+
+Pull Up Resistor :
+	http://en.wikipedia.org/wiki/Pull-up_resistor
+	Used in logic circuits to ensure that the inputs to logic systems settle at expected logic levels. A pull up resistor weakly "pulls" the voltage of the wire it is connected
+	to towards its voltage source level when the line is inactive. When other connections on the line are inactive, they are high impedence and act disconnected. Thus the 
+	pull up resistor ensure the wire is at a defined logic level. Keep in mind, if the resistor wasn’t there, your button would connect VCC to ground, which is very bad and is 
+	also known as a short. The lower the resistance, the more current, and hence more power is used ( Generally 10K ).   &
+	
+DC bias/offset : 
+	http://en.wikipedia.org/wiki/DC_bias
+	When describing a periodic function ( AC ), DC Bias/Component/Offset/Coefficient is the mean value of the waveform. If the mean apmplitude is zero, there is no DC offset.
+	A waveform without a DC component is known as DC-balanced waveform. A DC bias will not pass through a transformer, thus this component can be used to remove it from a signal.
+	It can also be reduced by using a high pass filter. In audio recording, DC offset is undesirable. A DC bias can be used to power devices over the same wire as the ac signal. &
+	
+Load Regulation :
+	http://en.wikipedia.org/wiki/Load_regulation
+	Is the capability to maintain a constant voltage ( or current ) level on the output channel of a power supply despite changes in the supply's load.
+
+Band Gap :
+	http://en.wikipedia.org/wiki/Band_gap
+	In solid-state physics, a band gap, also called an energy gap, is an energy range in a solid wehre no electron states can exist. In graphs of the electronic
+	band structure of solids, the band gap generally refers to the energy difference ( in electron volts ) between the top of the valence band and the bottom of 
+	the conduction band in insulators and semiconductors. This is equivalent to the energy required to free an outer shell electron from its orbit about the nucleus
+	to become a mobile charge carrier, able to move freely within the solid material, so the band gap is a major factor determining the electrical conductivity of
+	of a solid. Substances with large band gaps are generally insulators, those with smaller band gaps are semiconductors, while conductors either have very small band
+	gaps or none due to the fact that the valence and conduction bands overlap. 
+
+Delta Sigma Modulation :
+	The Delta Sigma ADC is a method for encoding analog signals into digital signals. The conversion is done using error feedback, where the difference between the two
+	signals is measured and used to improve the conversion. The low-resolution signal typically changes more quickly than the high-resolution signal and it can be filtered
+	to recover the high-resolution signal with little or no loss of fidelity. Both ADCs and DACs can employ delta-sigma modulation. An ADC first encodes an analog signal 
+	using this modulation, and then applies a digital filter to form a higher-resolution digital output. This modulation converts an analog voltage into a pulse frequency 
+	known as Pulse Density Modulation, or Pulse Frequency modulation. 
+	
+Charge Pump :
+	Is a kind of DC to DC converter that uses capacitors as energy storage elements to create either a higher or lower voltage power source. Charge pump circuits are capable of
+	high efficiencies. They use some form of switching device to control the connection of voltages to the capacitor. For instance, a two-stage cycle can be used to generate a higher
+	pulsed voltage from a lower power-supply. In the first stage of the cycle, a capacitor is connected accross the supply. charging it to that same voltage. In the second stage,
+	the circuit is reconfigured so that the capacitor is in series with the supply to the load. This effectively provides double to supply voltage to the load. The pulsing nature of the 
+	higher voltage output is typically smoothed by the use of an output capacitor. It can be used to double, triple, halve, invert, or fractionally multiply voltages.
+
+Current Sources and Sinks :
+	http://en.wikipedia.org/wiki/Current_sources_and_sinks
+	Current Sources and sinks are analysis formalisms which distinguish points, areas, or volumes through which current enters or exits a system. Current sources and sinks are abstract
+	elements used for analysis, generally they have physical counterparts in real world applications such as the anode or cathode in a battery. A source or a sink may be the same object
+	depending on the perspective of the observer, and the sign convention being used. Current sources is a boundary where current flows from locations where it is not measured, to locations
+	where it is measured. Current sink may refer to the boundary where current flows from locations where it is measured, to locations where it is not.
+		Source:
+			Flow of positive charges from the "invisible" to the "visible" ( toward the eye ) or flow of negative charges from the "visible" to the "invisible" ( away from the eye ).
+		Sink:
+			Flow of positive charges "away from the eye" or flow of negative charges "toward the eye".
+
+Open Collecter :
+	http://en.wikipedia.org/wiki/Open_collector
+	Common type of output found on many ICs. Instead of outputting a signal of a specific voltage or current, the output signal is applied to the bases of an internal NPN transistor whose
+	collector is externalized(open) on a pin of the IC. The emitter of the transistor is connected internally to the ground pin. For MOSFET	transistors, it is called open drain. The idea is 
+	that when the transistor is activated, the collector is connected to ground pulling the pin low. However when the transistor is not on, the collector is not connected to anything, leaving 
+	the pin floating in a unknown voltage range. This is why pull-up resistors are used with open collector and open drain outputs. 
+
+Zener Diode :
+	http://amrita.vlab.co.in/?sub=1&brch=282&sim=1207&cnt=1
+	The Zener diode is like a general-purpose signal diode. When biased in the forward direction it behaves just like a normal signal diode, but when a reverse voltage is applied to it, the voltage 
+	remains constant for a wide range of currents. Avalanche Breakdown: There is a limit for the reverse voltage. Reverse voltage can increase until the diode breakdown voltage reaches. This point 
+	is called Avalanche Breakdown region. At this stage maximum current will flow through the zener diode. This breakdown point is referred as “Zener voltage”. The Zener Diode is used in its "reverse bias". 
+	From the I-V Characteristics curve we can study that the zener diode has a region in its reverse bias characteristics of almost a constant negative voltage regardless of the value of the current flowing 
+	through the diode and remains nearly constant even with large changes in current as long as the zener diodes current remains between the breakdown current IZ(min) and the maximum current rating IZ(max).
+	This ability to control itself can be used to great effect to regulate or stabilise a voltage source against supply or load variations. The fact that the voltage across the diode in the breakdown region 
+	is almost constant turns out to be an important application of the zener diode as a voltage regulator
+
+Logic Analyzer :
+	http://en.wikipedia.org/wiki/Logic_analyzer
+	Electronic instrument that captures and displays multiple signals from a digital system or circuit. It may convert the captured data into timing diagrams, protocol decodes, state machine traces, assembly
+	language. Have advanced triggering capabilities, and are useful when a user needs to see the timing relationships between signals in a digital system.
+
+Electrical Termination :
+	http://en.wikipedia.org/wiki/Electrical_termination
+	Electrical termination of a signal involves providing a terminator at the end of a wire or cable to prevent an RF signal from being reflected back from the end, causing interference. The terminator is placed 
+	at the end of a transmission line, designed to match impedance and hence minimize signal reflections.
+
+Impedence :
+	http://en.wikipedia.org/wiki/Electrical_impedance
+	Electrical impedance is the measure of the opposition that a circuit presents to a current when a voltage is applied. Impedance extends the concept of resistance to AC circuits, and possesses both
+	magnitude and phase, unlike resistance, which has only magnitude. When a circuit is driven with direct current (DC), there is no distinction between impedance and resistance; the latter can be thought 
+	of as impedance with zero phase angle. It is necessary to introduce the concept of impedance in AC circuits because there are two additional impeding mechanisms to be taken into account besides the normal 
+	resistance of DC circuits: the induction of voltages in conductors self-induced by the magnetic fields of currents (inductance), and the electrostatic storage of charge induced by voltages between conductors (capacitance). 
+	The impedance caused by these two effects is collectively referred to as reactance and forms the imaginary part of complex impedance whereas resistance forms the real part.
+	
+Ground Loops :
+	http://en.wikipedia.org/wiki/Ground_loop_(electricity)
+	Go to link! Low current wiring is particularly susceptible to ground loops. If two pieces of audio equipment are plugged into different power outlets, there will often be a difference in their respective 
+	ground potentials. If a signal is passed from one to the other via an audio connection with the ground wire intact, this potential difference causes a spurious current through the cables, creating an audible 
+	buzz at the AC mains base frequency (50 or 60 Hz) and the harmonics thereof (120 Hz, 240 Hz, and so on), called mains hum. Sometimes, performers remove the grounding pin from the cord connecting an appliance 
+	to the power outlet; however, this creates an electrocution risk. The first solution is to ensure that all metal chassis are interconnected, then connected to the electrical distribution system at one point 
+	(often referred to as a "single-point ground"). 
+
+Flux :
+	http://en.wikipedia.org/wiki/Soldering
+	The purpose of flux is to facilitate the soldering process. One of the obstacles to a successful solder joint is an impurity at the site of the joint, for example, dirt, oil or oxidation. The impurities can 
+	be removed by mechanical cleaning or by chemical means, but the elevated temperatures required to melt the filler metal (the solder) encourages the work piece (and the solder) to re-oxidize. This effect is 
+	accelerated as the soldering temperatures increase and can completely prevent the solder from joining to the workpiece. One of the earliest forms of flux was charcoal, which acts as a reducing agent and helps 
+	prevent oxidation during the soldering process. Some fluxes go beyond the simple prevention of oxidation and also provide some form of chemical cleaning (corrosion).
+	Fluxes for soft solder are currently available in three basic formulations:
+		Water-soluble fluxes - higher activity fluxes designed to be removed with water after soldering (no VOCs required for removal).
+		No-clean fluxes - mild enough to not "require" removal due to their non-conductive and non-corrosive residue.[6] These fluxes are called "no-clean" because the residue left after the solder operation is non-conductive 
+					and won't cause electrical shorts; nevertheless they leave a plainly visible white residue that resembles diluted bird-droppings. No-clean flux residue is acceptable on all 3 classes 
+					of PCBs as defined by IPC-610 provided it does not inhibit visual inspection, access to test points, or have a wet, tacky or excessive residue that may spread onto other areas. Connector mating 
+					surfaces must also be free of flux residue. Finger prints in no clean residue is a class 3 defect[7]
+		Traditional rosin fluxes - available in non-activated (R), mildly activated (RMA) and activated (RA) formulations. RA and RMA fluxes contain rosin combined with an activating agent, typically an acid, which 
+						increases the wettability of metals to which it is applied by removing existing oxides. The residue resulting from the use of RA flux is corrosive and must be cleaned. RMA flux
+ 						is formulated to result in a residue which is not significantly corrosive, with cleaning being preferred but optional.
+
+Flash Memory : 
+	http://en.wikipedia.org/wiki/Flash_memory	
+	Is an Electronic Non-volatile computer storage medium that can eb electrically erased and reprogrammed. Flash memory was developed from EEPROM. There are two Types of Flash Memory: NAND and NOR. The internal characteristics
+	of the individual flash memory cells exhibit characteristics similar to those of the corresponding gates. Where EEPROMS had to be completly erased before bein grewritten, NAND type flash memory may be written and read in blocks
+	(or pages) which are generally much smaller than the entire device. NOR type flash allows a single byte to be written, to an erased location, or read independtly each block. NAND is primarily used in main memory, memory cards,
+	USB flash drives, solid-state drives, and similar devices for general storage and transfer of data. The NOR type, which allows true random access, and therefore direct code execution, is used as a replacement for the older EEPROM,
+	and as an alternative to certain kinds of ROM. Where NOR flash memory may emulate ROM primarily at the machine code level, many digital designs need ROM structures and speed. Flash memory is also used to store configuration data for
+	certain digital devices. Flash is cheaper than EEPROM, and is faster when writing large amounts of data. See Hot carrier injection to understand how programming exactly works
+
+Virtualization Technology :
+	http://www.hardwaresecrets.com/article/Everything-You-Need-to-Know-About-the-Intel-Virtualization-Technology/263
+	If there is software such as VMware that enables virtualization, why implement virtualization technology inside the CPU? The advantage is that CPUs with Virtualization technology have some new instructions to control virtualization.
+	With these new instructions, controlling software, Virtual Machine Monitor (VMM), can be simpler, thus improving performance compared to soley software based solutions. When the CPU has support to Virtualization Technology, the
+	virtualization is said to be hardware-based, or hardware-assisted. There are two modes to run under virtualization: VMX root operation, and VMX non-root operation. Typically, the virtualization controllering software, VMM, is the only 
+	program to run under root operation, while OSs run on top of the virtual machines under non-root operation. Software running on top of virtual machines is also called "guest software". More recent processors have an extension called
+	Extended Page Table (EPT) which allows these guests to have their own page table to keep track of memory addresses. Without this extension, the VMM has to exit the virtual machine to perform address translations; thus reducing performance
+
+eMMC :
+	http://www.datalight.com/solutions/technologies/emmc/what-is-emmc
+	The term is short for embedded Multi-Media Controller and refers to a package consisting of both flash memory and a flash memory controller integrate onto the same silicon die. The eMMC solution consists of at least 3 components:
+	the Multi-Media card (MMC) interface, the falsh memory, and the flash memory controller. Typically offered in a BGA package. Todays embedded applications such as cameras and smart phones almost always store their content on flash
+	memory. In the past, this required a dedicated controller to manage the reading and writing of data, driven by the application CPU. However, due to progression of semi-conductor technology, storage density has increased, and has 
+	caused this method of controlling the flash to be inefficient. Hence, eMMC was developed as a standardized method for bundling the controller into the flash die. While the eMMC was developed to improve data rates and throughputs 
+	for high-density chips designed to store high-resolution video, newer generations are doing more for more types of applications. The eMMC architecture integrating the flash memory controller in the same package simplifies the application 
+	interface design and frees the host processor from low-level flash memory management. This benefits product developers by simplifying the non-volatile memory interface design and qualification process – resulting in a reduction in time-to-market
+	as well as facilitating support for future flash device offerings.
+
+H.264 / MPEG-4 :
+	http://en.wikipedia.org/wiki/H.264/MPEG-4_AVC
+	This is a video compression format that is currently on of the most commonly used formats for the recording, compression, and distribution of video content. H.264 is perhaps best known for being one of the video encoding standards for
+	Blu-ray discs. It is also widely used by internet sources such as itunes and youtube. The intent of its creation was to develop a standard capable of providing good video quality at substantially lower bit reates than previous standards,
+	without increasing the complexity of design. This standard was also developed so that it could be applied to a wide varitey of applications on a wide varity of networks. During the completion of the standard Fidelity Range Extentions were
+	developed which increased sample bit depth percision and higher resolution color information due to the new sampling structures known as Y'CbCr 4:2:2 and Y'CbCr 4:4:4. The H.264 gives same quality as old MPEG-2 and MPEG-4 standards, but cuts
+	the required bandwith in half
+
+SoC :
+	http://en.wikipedia.org/wiki/System_on_a_chip
+	A system on chip is an IC that integrates all components of a computer or other electronic system into a signle chip. It may contain digital, analog, and radio frequency functions, and are typically applied to embedded systems. They are slightly
+	different than microcontrollers. Microcontrollers typically have under 100kB of RAM and and often really are single chip systems; whereas the term SoC is typically used for more powerful processors, capable of running software such as the desktop
+	versions of Windows and Linux, which need external memory chips to be useful. 
+
+Transconductance :
+	http://en.wikipedia.org/wiki/Transconductance
+	Is the property of certain electrical components. Conducatance is the reciprocol of resistance; transconductance is the ratio of the current variation at the output, to the voltage variation at the input.
+
+FCXO :
+	http://www.icmfg.com/crystalglossaryf.html
+	Stands for a Frequency Converting Crystal Oscillator. It consists of a low phase noise VCXO combined with a complete PLL, which simplifies the synchronization of an output frequency to a stable refereence frequency. With its low phase noise
+	, this compact surface mount device is applicable to a wide variety of synchornization schemes. 
+
+XTAL :
+	http://en.wikipedia.org/wiki/Crystal
+	XTAL is an abbrivation for the word crystal. A crystal is a solid material whose constituent atoms, molecules, or ions are arranged in an ordered patteren extending all three spatial dimentions. 
+
+PLL :
+	http://en.wikipedia.org/wiki/Phase-locked_loop
+	A phase-locked loop is a control system that generates an output signal whose phase is related to the phase of an input signal. It is easiest to visualize as an electronic circuit consisting of a variable frequency oscillator and phase detector.
+	The oscillator generates a periodic signal. The phase detector compares the phase of that signal with the phase of the input periodic signal and adjusts the oscillator to keep the phases matched. Bringing the output signal back toward the input
+	input signal is called a feedback loop. Keeping the input and output phase in lock step also implies keeping the input and output frequencies the same. Thus a PLL can track an input frequency, or it can generate a frequency that is a multiple
+	of the input frequency.. These properties are used for computer clock synchronization, demodulation, and frequency synthesis. Types of PLLs are :
+		Analog or Linear PLL (APLL): Phase detector is an analog multiplier. Loop filter is active or passive. Uses Voltage-controlled Oscillator(VCO)
+		Digital PLL (DPLL)         : analog PLL with a digital phase detector (XOR/JK). Many have digital dividers in the loop
+		All Digital PLL (ADPLL)    : Phase detector, filter and oscillate are digital. Uses numerically controlled oscillator(NCO)
+		Software PLL (SPLL)        : Functional blocks are implemented by software rather than specialized hardware.
+		Neuronal PLL (NPLL)		   : Phase detector, filter and oscillator are neurons or small neuronal pools. Uses a rate controlled oscillator(RCO). Used for tracking and decoding low frequency modulations
+	
+VCO :
+	Voltage-controlled oscillator is an oscillator whose frequency is controlled by a voltage input. The applied input voltage determines the instantaneous oscillation frequency.  Consequently, modulation signals applied to a control input may cause
+	frequency modulation(FM) or phase modulation(PM). A VCO is sometimes a part of a phase locked loop. VCOs are either harmonic or relaxation oscillators. Harmonic or linear oscillators generate a sinusoidal waveform. These consist of a resonator with 
+	an amplifier that replaces the resonator losses(to prevent the input amplitude from decaying) and isolates the resonator from the output(so the load does not affect the resonator). Relaxation oscillators can generate a sawtooth or triangular waveform. 
+	These are commonly used in monolithic integrated circuits and can provide a wide range of operational frequencies with a minimal number of external components. 
+	
+Buck Converter:
+	http://en.wikipedia.org/wiki/Buck_converter
+	A buck converter is a voltage step down and current step up converter. The simplest way to reduce the voltage of a DC supply is to use a linear regulator, but linear regulators waste energy as they operate by dissipating excess power as heat. Buck
+	converters on the other hand can be up to 95% efficient, making them useful for tasks such as converting the main voltage in a computer, down to the 0.8-1.8 volts needed by the processor.
+
+RS-232 vs UART :
+	https://www.sparkfun.com/tutorials/215
+	Most microcontrollers these days have built in UARTs (universally asynchronous receiver/transmitter) that can be used to receive and transmit data serially. UARTs transmit one bit at a time at a specified data rate (i.e. 9600bps, 115200bps, etc.). 
+	This method of serial communication is sometimes referred to as TTL serial (transistor-transistor logic). Serial communication at a TTL level will always remain between the limits of 0V and Vcc, which is often 5V (TTL UART) or 3.3V (LVTTL UART). A logic high ('1') is represented 
+	by Vcc, while a logic low ('0') is 0V.The serial port on your computer (if it's lucky enough to have one, they're quickly becoming a relic) complies with the RS-232 (Recommended Standard 232) telecommunications standard. RS-232 signals are similar to your 
+	microcontroller's serial signals in that they transmit one bit at a time, at a specific baud rate, with or without parity and/or stop bits. By the RS-232 standard a logic high ('1') is represented by a negative voltage – anywhere from -3 to -25V – while a 
+	logic low ('0') transmits a positive voltage that can be anywhere from +3 to +25V. On most PCs these signals swing from -13 to +13V. 
+
+Amplifier :
+	https://learn.sparkfun.com/tutorials/transistors
+	This link will give all information you need
